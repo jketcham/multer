@@ -20,6 +20,8 @@ function Multer (options) {
   this.limits = options.limits
   this.preservePath = options.preservePath
   this.fileFilter = options.fileFilter || allowAll
+  this.pipeBody = options.pipeBody
+  this.unpipeBody = options.unpipeBody
 }
 
 Multer.prototype._makeMiddleware = function (fields, fileStrategy) {
@@ -49,7 +51,9 @@ Multer.prototype._makeMiddleware = function (fields, fileStrategy) {
       preservePath: this.preservePath,
       storage: this.storage,
       fileFilter: wrappedFileFilter,
-      fileStrategy: fileStrategy
+      fileStrategy: fileStrategy,
+      pipeBody: this.pipeBody,
+      unpipeBody: this.unpipeBody
     }
   }
 
