@@ -83,7 +83,9 @@ Multer.prototype.any = function () {
       preservePath: this.preservePath,
       storage: this.storage,
       fileFilter: this.fileFilter,
-      fileStrategy: 'ARRAY'
+      fileStrategy: 'ARRAY',
+      pipeBody: this.pipeBody,
+      unpipeBody: this.unpipeBody
     }
   }
 
